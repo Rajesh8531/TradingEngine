@@ -1,6 +1,6 @@
 <Solution>
   <Project Path="../Application/Application.csproj" Id="a95ca320-a856-48e0-9438-287520c2dc76" />
-  <Project Path="../Contract/Contract.csproj" Id="526fdeb5-c63a-4497-b45b-3fd55c34b6ee" />
-  <Project Path="../Repository/Repository.csproj" Id="537058ed-08d6-4e39-bba3-ba66d93785f9" />
+  <Project Path="../Contract/Domain.csproj" Id="526fdeb5-c63a-4497-b45b-3fd55c34b6ee" />
+  <Project Path="../Repository/Infrastructure.csproj" Id="537058ed-08d6-4e39-bba3-ba66d93785f9" />
   <Project Path="TradingEngine.csproj" />
 </Solution>
