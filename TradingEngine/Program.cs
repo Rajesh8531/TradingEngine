@@ -1,3 +1,5 @@
+using Infrastructure.Persistence;
+using Microsoft.EntityFrameworkCore;
 using TradingEngine.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);

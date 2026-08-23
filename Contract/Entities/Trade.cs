@@ -9,9 +9,11 @@ namespace Domain.Entities
     {
         public Guid Id { get; set; }
         public Guid MakerOrderId { get; set; }
+        public Order MakerOrder { get; set; } = default!;
         public Guid TakerOrderId { get; set; }
+        public Order TakerOrder { get; set; } = default!;
         public Symbol Symbol { get; set; }
-        public decimal ExecutedPrice { get; set; }
+        public decimal ExecutionPrice { get; set; }
         public DateTimeOffset ExecutedAt { get; set; }
         public int Quantity { get; set; }
 
