@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Application
 {
-    public sealed class ApplicationAssemplyMarker
+    public sealed class ApplicationAssemblyMarker
     {
     }
 }

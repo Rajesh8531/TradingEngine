@@ -48,14 +48,13 @@ namespace TradingEngine.Extensions
         public static IApplicationBuilder UseCorrelationId(this IApplicationBuilder builder)
         {
             return builder.UseMiddleware<CorrelationIdMiddleware>();
-            
         }
 
         public static void ConfigureMediatR(this IServiceCollection services)
         {
             services.AddMediatR(config =>
             {
-                config.RegisterServicesFromAssembly(typeof(ApplicationAssemplyMarker).Assembly);
+                config.RegisterServicesFromAssembly(typeof(ApplicationAssemblyMarker).Assembly);
                 config.AddBehavior(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
             });
         }
