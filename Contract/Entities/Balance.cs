@@ -9,6 +9,7 @@ namespace Domain.Entities
     {
         public Guid Id { get; set; }
         public Guid UserId { get; set; }
+        public User User { get; set; } = default!;
         public Symbol AssetSymbol { get; set; }
         public decimal AvailableBalance { get; set; }
         public decimal LockedBalance { get; set; }
