@@ -48,7 +48,7 @@ namespace Application.Handler
                 LockedBalance = 0
             };
 
-            _balances.AddBalance(balance, cancellationToken);
+            _balances.AddBalance(balance);
             await _unitOfWork.SaveChangesAsync(cancellationToken);
             return Result<CreatedBalanceResponseDTO>.Success(new CreatedBalanceResponseDTO(request.UserId, request.AssetSymbol, request.Quantity, 0));
         }

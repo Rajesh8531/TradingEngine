@@ -1,10 +1,9 @@
-﻿using System;
+﻿using Domain.Enums;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Infrastructure.DTOs
 {
-    public class CreateOrderResponseDTO
-    {
-    }
+    public record CreateOrderResponseDTO(Guid Id, decimal Quantity, OrderType Side, string Symbol, Guid UserId);
 }

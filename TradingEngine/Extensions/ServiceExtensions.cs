@@ -74,6 +74,9 @@ namespace TradingEngine.Extensions
             services.AddScoped<IUnitOfWork>(sp => sp.GetRequiredService<ApplicationDbContext>());
             services.AddScoped<IUserRepository, UserRepository>();
 
+            services.AddScoped<IOrderRepository, OrderRepository>();
+
+            services.AddScoped<IOutboxMessageRepository, OutboxMessageRepository>();
 
             services.AddScoped<IBalanceRepository, BalanceRepository>();
         }
