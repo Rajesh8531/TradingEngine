@@ -1,8 +1,13 @@
 ﻿using Application;
 using Application.Behaviours;
+using Application.Common.Interface;
+using Application.Services;
 using Infrastructure.Persistence;
+using Infrastructure.Persistence.Contracts;
+using Infrastructure.Persistence.Repositories;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
+using RabbitMQ.Client;
 using Serilog;
 using Serilog.Events;
 using TradingEngine.Middlewares;
@@ -57,6 +62,32 @@ namespace TradingEngine.Extensions
                 config.RegisterServicesFromAssembly(typeof(ApplicationAssemblyMarker).Assembly);
                 config.AddBehavior(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
             });
+        }
+
+        public static void RegisterHostedServices(this IServiceCollection services)
+        {
+            services.AddHostedService<OutboxRelayService>();
+        }
+
+        public static void RegisterDependencies(this IServiceCollection services)
+        {
+            services.AddScoped<IUnitOfWork>(sp => sp.GetRequiredService<ApplicationDbContext>());
+            services.AddScoped<IUserRepository, UserRepository>();
+
+
+            services.AddScoped<IBalanceRepository, BalanceRepository>();
+        }
+
+        public static void RegisterRabbitMQ(this IServiceCollection services)
+        {
+            services.AddSingleton(new ConnectionFactory()
+            {
+                HostName = "localhost",
+                UserName = "guest",
+                Password = "guest",
+            });
+
+            services.AddSingleton<IEventPublisher, RabbitMQPublisher>();
         }
     }
 }

@@ -17,6 +17,9 @@ namespace Infrastructure.Persistence.Configurations
 
             builder.Property(x => x.Price).HasPrecision(18, 8);
 
+            builder.Property(x => x.OriginalQuantity).HasPrecision(18, 8);
+            builder.Property(x => x.RemainingQuantity).HasPrecision(18, 8);
+
             // Save Enums as strings for direct DB readability
             builder.Property(x => x.Side)
                 .HasConversion<string>()

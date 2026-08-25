@@ -30,6 +30,8 @@ namespace Infrastructure.Persistence.Configurations
 
             // Index for generating price charts (e.g., TradingView candlestick charts)
             builder.HasIndex(x => new { x.Symbol, x.ExecutedAt });
+
+            builder.Property(x => x.Quantity).HasPrecision(18, 8);
         }
     }
 }
